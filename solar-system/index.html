@@ -17,7 +17,7 @@
 </head>
 <body>
     <!-- A-Frame Scene -->
-    <a-scene background="color: #000000"  renderer="antialias: true; colorManagement: true;"  vr-mode-ui="enabled: false">
+    <a-scene background="color: #000000"  renderer="antialias: true; colorManagement: true;"  vr-mode-ui="enabled: true" visible="false">
         
         <!-- Skybox / Stars Background -->
         <a-assets>
@@ -167,6 +167,14 @@
 
         <!-- Add small particle stars for depth (optional) --> 
         <a-entity id="stars-particles" particle-system="preset: stars; particleCount: 2000; color: #FFFFFF; size: 0.5; sizeRandomness: 0.8; speed: 0; opacity: 0;"></a-entity> 
-    </a-scene>          
+    </a-scene>    
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+         const scene = document.querySelector("#scene");
+         scene.addEventListener("loaded", () => {
+        scene.setAttribute("visible", "true");
+       });
+     });
+    </script>
 </body>
 </html>
